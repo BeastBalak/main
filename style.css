@@ -275,4 +275,30 @@ footer {
     transform: translateY(0);
   }
 }
+.animated-underline {
+  position: relative;
+  display: inline-block;
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #e6edce; /* Light greenish white */
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: #ff0000; /* Red underline */
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: drawUnderline 1s ease-out forwards;
+}
+
+@keyframes drawUnderline {
+  to {
+    transform: scaleX(1);
+  }
+}
 
