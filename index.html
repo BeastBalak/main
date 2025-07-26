@@ -6,38 +6,38 @@
   <title>Jayesh Sharma | Student</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
   <link rel="icon" href="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj" type="image/png">
 
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     body {
-      font-family: 'Playfair Display', serif;
       margin: 0;
-      padding: 0;
-      background-color: #111;
+      font-family: 'Playfair Display', serif;
       color: #fff;
+      background-color: #111;
       scroll-behavior: smooth;
     }
 
     a {
-      color: #ff4e4e;
+      color: #ff4c4c;
       text-decoration: none;
     }
 
-    .video-background, .main-background {
+    .video-background, .main-video-background {
       position: fixed;
       top: 0; left: 0;
       width: 100vw; height: 100vh;
-      z-index: -2;
       overflow: hidden;
+      z-index: -2;
     }
 
-    .video-background iframe, .main-background iframe {
+    .video-background iframe,
+    .main-video-background iframe {
       width: 100vw;
       height: 56.25vw;
       min-height: 100vh;
@@ -51,9 +51,8 @@
     .frosted-overlay {
       position: fixed;
       top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
+      width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(12px);
       z-index: -1;
     }
@@ -64,131 +63,138 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      text-align: center;
     }
 
     .card {
-      width: 320px;
-      height: 420px;
-      background-color: rgba(30, 30, 30, 0.8);
-      color: #fff;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      background-color: rgba(0, 0, 0, 0.6);
       padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(255, 76, 76, 0.4);
     }
 
     .card img {
       width: 130px;
       height: 130px;
       border-radius: 50%;
-      border: 3px solid #ff4e4e;
-      margin-bottom: 1.2rem;
+      border: 3px solid #ff4c4c;
+      margin-bottom: 1rem;
+    }
+
+    .card h2 {
+      margin: 0.5rem 0;
     }
 
     .enter-btn {
       margin-top: 2rem;
-      padding: 0.9rem 2rem;
-      font-size: 1rem;
-      background-color: #ff4e4e;
+      background: #ff4c4c;
       color: #fff;
+      padding: 0.7rem 1.5rem;
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
     }
 
     .enter-btn:hover {
-      background-color: #e00000;
+      background: #e33a3a;
     }
 
     main {
       display: none;
-      position: relative;
-      padding: 3rem 2rem;
-      z-index: 1;
+      padding: 2rem;
     }
 
-    header, section, footer {
-      margin-bottom: 3rem;
+    header {
       text-align: center;
+      padding: 3rem 1rem 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      margin-bottom: 2rem;
     }
 
-    h1, h2, h3 {
+    header h1 {
+      font-size: 3rem;
       color: #fff;
     }
 
-    p {
-      color: #ddd;
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
     }
 
-    .netflix-grid {
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ff4c4c;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .projects, .netflix-grid {
       display: flex;
-      overflow-x: auto;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1.5rem;
-      padding: 1rem 0;
     }
 
     .netflix-card {
-      min-width: 220px;
-      background-color: #1e1e1e;
+      position: relative;
+      background-color: #1a1a1a;
       border-radius: 10px;
       overflow: hidden;
-      position: relative;
       transition: transform 0.3s;
       cursor: pointer;
     }
 
     .netflix-card:hover {
-      transform: scale(1.07);
+      transform: scale(1.05);
     }
 
     .netflix-card img {
-      width: 100%;
-      height: 300px;
+      width: 300px;
+      height: 180px;
       object-fit: cover;
     }
 
     .netflix-card .overlay {
       position: absolute;
       top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
       opacity: 0;
-      transition: opacity 0.3s;
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      font-weight: bold;
       font-size: 1.2rem;
+      transition: opacity 0.3s;
     }
 
     .netflix-card:hover .overlay {
       opacity: 1;
     }
 
-    .skills, .contact {
-      text-align: center;
-    }
-
     ul {
       list-style: none;
       padding: 0;
+      text-align: center;
     }
 
     li {
       margin: 0.5rem 0;
+      font-size: 1.1rem;
     }
 
     footer {
+      text-align: center;
       font-size: 0.9rem;
-      color: #aaa;
-      padding-bottom: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .netflix-card {
-        min-width: 160px;
-      }
+      color: #888;
+      padding: 2rem 0;
     }
   </style>
 </head>
@@ -196,7 +202,7 @@
 <body>
   <!-- ID Card Background -->
   <div class="video-background">
-    <iframe src="https://www.youtube.com/embed/2vnaxQhUXi8?start=30&autoplay=1&mute=1&controls=0&loop=1&playlist=2vnaxQhUXi8&modestbranding=1&showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/2vnaxQhUXi8?start=30&autoplay=1&mute=1&loop=1&playlist=2vnaxQhUXi8&controls=0&modestbranding=1&showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
   <div class="frosted-overlay"></div>
 
@@ -211,52 +217,55 @@
     </div>
   </section>
 
+  <!-- Main Page Background -->
+  <div class="main-video-background" style="display:none;">
+    <iframe src="https://www.youtube.com/embed/FlJSkklf0YQ?start=30&autoplay=1&mute=1&loop=1&playlist=FlJSkklf0YQ&controls=0&modestbranding=1&showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
   <!-- Main Content -->
   <main id="main-content">
-    <div class="main-background">
-      <iframe src="https://www.youtube.com/embed/FlJSkklf0YQ?start=30&autoplay=1&mute=1&controls=0&loop=1&playlist=FlJSkklf0YQ&modestbranding=1&showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-    <div class="frosted-overlay"></div>
-
-    <header>
+    <header data-aos="fade-down">
       <h1>Jayesh Sharma</h1>
-      <p>Visual Storyteller | Content Creator</p>
+      <p>Visual Storyteller • Content Creator • Cinematic Editor</p>
     </header>
 
     <section data-aos="fade-up">
       <h2>About Me</h2>
-      <p>I bring emotions to life through visuals. With a sharp eye for cinematic editing and storytelling, I help creators and brands stand out with style.</p>
+      <p style="max-width: 600px; margin: auto;">
+        I'm a passionate video editor who brings stories to life through cinematic visuals. My work focuses on emotion, concept, and aesthetic—crafted for creators, brands, and bold thinkers.
+      </p>
     </section>
 
     <section data-aos="fade-up">
       <h2>Video Showcase</h2>
       <div class="netflix-grid">
-        <div class="netflix-card" onclick="window.open('https://youtu.be/2vnaxQhUXi8', '_blank')">
-          <img src="https://i.ytimg.com/vi/2vnaxQhUXi8/hqdefault.jpg" alt="Documentary">
-          <div class="overlay">Watch on YouTube</div>
+        <div class="netflix-card" onclick="window.open('https://youtu.be/2vnaxQhUXi8','_blank')">
+          <img src="https://img.youtube.com/vi/2vnaxQhUXi8/maxresdefault.jpg" alt="Documentary">
+          <div class="overlay">Watch</div>
         </div>
-        <div class="netflix-card" onclick="window.open('https://youtu.be/RDGhEXpmVgk', '_blank')">
+        <div class="netflix-card" onclick="window.open('https://youtu.be/RDGhEXpmVgk','_blank')">
           <img src="https://img.youtube.com/vi/RDGhEXpmVgk/maxresdefault.jpg" alt="Concept Video">
-          <div class="overlay">Watch on YouTube</div>
+          <div class="overlay">Watch</div>
         </div>
         <div class="netflix-card">
-          <img src="https://via.placeholder.com/300x180/1e1e1e/ffffff?text=Coming+Soon" alt="Coming Soon">
+          <img src="https://via.placeholder.com/300x180/111/fff?text=Coming+Soon" alt="Coming Soon">
           <div class="overlay">Coming Soon</div>
         </div>
       </div>
     </section>
 
-    <section class="skills" data-aos="fade-up">
+    <section data-aos="fade-up">
       <h2>Skills</h2>
       <ul>
         <li>Adobe Premiere Pro</li>
         <li>After Effects</li>
-        <li>Adobe Photoshop</li>
+        <li>DaVinci Resolve</li>
         <li>Motion Graphics</li>
+        <li>Color Grading</li>
       </ul>
     </section>
 
-    <section class="contact" data-aos="fade-up">
+    <section data-aos="fade-up">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:beastgamerxjay@gmail.com">beastgamerxjay@gmail.com</a></p>
       <p>Instagram: <a href="https://instagram.com/ihyjayesh" target="_blank">@ihyjayesh</a></p>
@@ -267,6 +276,7 @@
     </footer>
   </main>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
@@ -275,8 +285,8 @@
       document.getElementById('id-card').style.display = 'none';
       document.querySelector('.video-background').style.display = 'none';
       document.querySelector('.frosted-overlay').style.display = 'none';
-      const main = document.getElementById('main-content');
-      main.style.display = 'block';
+      document.querySelector('.main-video-background').style.display = 'block';
+      document.getElementById('main-content').style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
