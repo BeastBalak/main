@@ -145,3 +145,51 @@ footer {
   background: rgba(0,0,0,0.8);
   color: #999;
 }
+.hero-header {
+  position: relative;
+  text-align: center;
+  margin-top: 100px;
+  overflow: hidden;
+}
+
+.main-name {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #e6edce;
+  z-index: 2;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.titles-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.title-slide {
+  font-size: 1.5rem;
+  color: #bfff00;
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: slideOut 1s ease-out forwards;
+}
+
+.title-slide:nth-child(1) {
+  animation-delay: 1s;
+}
+.title-slide:nth-child(2) {
+  animation-delay: 2s;
+}
+.title-slide:nth-child(3) {
+  animation-delay: 3s;
+}
+
+@keyframes slideOut {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
