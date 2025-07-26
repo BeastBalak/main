@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jayesh Sharma | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="dreams.html">Dreams</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header data-aos="fade-down">
+      <h1>My Portfolio</h1>
+    </header>
+
+    <!-- Video Showcase -->
+    <section data-aos="fade-up">
+      <h2>Video Showcase</h2>
+      <div class="netflix-grid">
+        <div class="card" onclick="window.open('https://youtu.be/2vnaxQhUXi8','_blank')">
+          <img src="https://img.youtube.com/vi/2vnaxQhUXi8/maxresdefault.jpg" alt="Documentary">
+          <div class="overlay">Watch Documentary</div>
+        </div>
+        <div class="card" onclick="window.open('https://youtu.be/RDGhEXpmVgk','_blank')">
+          <img src="https://img.youtube.com/vi/RDGhEXpmVgk/maxresdefault.jpg" alt="Concept">
+          <div class="overlay">Watch Concept</div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x180/111/fff?text=Coming+Soon" alt="Coming Soon">
+          <div class="overlay">Coming Soon</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Back to <a href="index.html">Home</a> | © 2025 Jayesh Sharma
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
