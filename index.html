@@ -3,39 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jayesh Sharma | Portfolio</title>
+  <title>Jayesh Sharma | Student</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj" type="image/png">
+
+  <style>
     body {
       font-family: 'Playfair Display', serif;
+      margin: 0;
+      padding: 0;
+      background-color: #111;
       color: #fff;
-      background-color: #121212;
-      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     a {
-      color: #ff5555;
+      color: #ff4e4e;
       text-decoration: none;
     }
 
-    .video-background {
+    .video-background, .main-background {
       position: fixed;
       top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100vw; height: 100vh;
       z-index: -2;
       overflow: hidden;
     }
 
-    .video-background iframe {
+    .video-background iframe, .main-background iframe {
       width: 100vw;
       height: 56.25vw;
       min-height: 100vh;
@@ -49,35 +51,14 @@
     .frosted-overlay {
       position: fixed;
       top: 0; left: 0;
-      width: 100vw; height: 100vh;
+      width: 100vw;
+      height: 100vh;
       background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
       z-index: -1;
     }
 
-    .loading-screen {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      flex-direction: column;
-    }
-
-    .loader {
-      border: 8px solid #333;
-      border-top: 8px solid #ff5555;
-      border-radius: 50%;
-      width: 70px;
-      height: 70px;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
     #id-card {
-      display: none;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -86,206 +67,218 @@
     }
 
     .card {
-      background: #1e1e1e;
-      padding: 2rem;
-      border-radius: 10px;
+      width: 320px;
+      height: 420px;
+      background-color: rgba(30, 30, 30, 0.8);
+      color: #fff;
+      border-radius: 12px;
       text-align: center;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      padding: 2rem;
     }
 
     .card img {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      border: 3px solid #ff5555;
-      margin-bottom: 1rem;
+      border: 3px solid #ff4e4e;
+      margin-bottom: 1.2rem;
     }
 
     .enter-btn {
       margin-top: 2rem;
-      padding: 0.8rem 1.5rem;
+      padding: 0.9rem 2rem;
       font-size: 1rem;
-      background-color: #ff5555;
-      color: white;
+      background-color: #ff4e4e;
+      color: #fff;
       border: none;
       border-radius: 8px;
       cursor: pointer;
     }
 
     .enter-btn:hover {
-      background-color: #e64545;
+      background-color: #e00000;
     }
 
     main {
       display: none;
       position: relative;
-      z-index: 2;
-      padding: 2rem;
+      padding: 3rem 2rem;
+      z-index: 1;
     }
 
     header, section, footer {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
       text-align: center;
     }
 
-    .projects, .netflix-grid {
+    h1, h2, h3 {
+      color: #fff;
+    }
+
+    p {
+      color: #ddd;
+    }
+
+    .netflix-grid {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      overflow-x: auto;
       gap: 1.5rem;
+      padding: 1rem 0;
     }
 
-    .project-card, .netflix-card {
-      background: rgba(0,0,0,0.7);
-      padding: 1rem;
+    .netflix-card {
+      min-width: 220px;
+      background-color: #1e1e1e;
       border-radius: 10px;
-      width: 280px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s;
+      cursor: pointer;
     }
 
-    .project-card iframe {
-      border-radius: 8px;
-      width: 100%;
-      height: 180px;
+    .netflix-card:hover {
+      transform: scale(1.07);
     }
 
     .netflix-card img {
       width: 100%;
-      height: 180px;
+      height: 300px;
       object-fit: cover;
-      border-radius: 6px;
+    }
+
+    .netflix-card .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .netflix-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .skills, .contact {
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.5rem 0;
     }
 
     footer {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: #aaa;
+      padding-bottom: 2rem;
     }
 
-    /* Main page video */
-    .main-bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: -3;
-    }
-
-    .main-bg iframe {
-      width: 100vw;
-      height: 56.25vw;
-      min-height: 100vh;
-      min-width: 177.77vh;
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-
-    .main-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(10px);
-      z-index: -2;
+    @media (max-width: 768px) {
+      .netflix-card {
+        min-width: 160px;
+      }
     }
   </style>
 </head>
+
 <body>
-
-<!-- Video background for loading and ID card -->
-<div class="video-background" id="bg-video">
-  <iframe src="https://www.youtube.com/embed/2vnaxQhUXi8?autoplay=1&mute=1&controls=0&loop=1&playlist=2vnaxQhUXi8&modestbranding=1" frameborder="0" allowfullscreen></iframe>
-</div>
-<div class="frosted-overlay" id="bg-overlay"></div>
-
-<!-- Loading screen -->
-<div class="loading-screen" id="loading">
-  <div class="loader"></div>
-</div>
-
-<!-- ID Card -->
-<section id="id-card">
-  <div class="card">
-    <img src="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj" alt="Profile">
-    <h2>Jayesh Sharma</h2>
-    <p>Age: 18</p>
-    <p>Occupation: Student</p>
-    <button class="enter-btn" onclick="enterWebsite()">Enter Website</button>
+  <!-- ID Card Background -->
+  <div class="video-background">
+    <iframe src="https://www.youtube.com/embed/2vnaxQhUXi8?start=30&autoplay=1&mute=1&controls=0&loop=1&playlist=2vnaxQhUXi8&modestbranding=1&showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
-</section>
+  <div class="frosted-overlay"></div>
 
-<!-- Main Content -->
-<div class="main-bg" id="main-video">
-  <iframe src="https://www.youtube.com/embed/FlJSkklf0YQ?start=30&autoplay=1&mute=1&controls=0&loop=1&playlist=FlJSkklf0YQ&modestbranding=1" frameborder="0" allowfullscreen></iframe>
-</div>
-<div class="main-overlay" id="main-overlay"></div>
-
-<main id="main-content">
-  <header>
-    <h1>Jayesh Sharma</h1>
-    <p>Student | Visual Storyteller | Content Creator</p>
-  </header>
-
-  <section>
-    <h2>About Me</h2>
-    <p>I bring ideas to life through compelling edits. Cinematic storytelling is my medium. I work with creators and brands to deliver emotionally engaging content.</p>
-  </section>
-
-  <section>
-    <h2>Video Showcase</h2>
-    <div class="netflix-grid">
-      <div class="netflix-card">
-        <img src="https://img.youtube.com/vi/2vnaxQhUXi8/maxresdefault.jpg" alt="Documentary">
-        <p>Documentary</p>
-      </div>
-      <div class="netflix-card">
-        <img src="https://img.youtube.com/vi/RDGhEXpmVgk/maxresdefault.jpg" alt="Concept Video">
-        <p>Introspective Concept</p>
-      </div>
-      <div class="netflix-card">
-        <img src="https://via.placeholder.com/300x180/000000/ffffff?text=Coming+Soon" alt="Coming Soon">
-        <p>Coming Soon</p>
-      </div>
+  <!-- ID Card Section -->
+  <section id="id-card">
+    <div class="card">
+      <img src="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj" alt="Profile">
+      <h2>Jayesh Sharma</h2>
+      <p>18</p>
+      <p>Student</p>
+      <button class="enter-btn" onclick="enterWebsite()">Enter Website</button>
     </div>
   </section>
 
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>Adobe Premiere Pro</li>
-      <li>After Effects</li>
-      <li>DaVinci Resolve</li>
-      <li>Motion Graphics</li>
-      <li>Color Grading</li>
-    </ul>
-  </section>
+  <!-- Main Content -->
+  <main id="main-content">
+    <div class="main-background">
+      <iframe src="https://www.youtube.com/embed/FlJSkklf0YQ?start=30&autoplay=1&mute=1&controls=0&loop=1&playlist=FlJSkklf0YQ&modestbranding=1&showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="frosted-overlay"></div>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:beastgamerxjay@gmail.com">beastgamerxjay@gmail.com</a></p>
-    <p>Instagram: <a href="https://instagram.com/ihyjayesh" target="_blank">@ihyjayesh</a></p>
-  </section>
+    <header>
+      <h1>Jayesh Sharma</h1>
+      <p>Visual Storyteller | Content Creator</p>
+    </header>
 
-  <footer>
-    <p>&copy; 2025 Jayesh Sharma. All rights reserved.</p>
-  </footer>
-</main>
+    <section data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>I bring emotions to life through visuals. With a sharp eye for cinematic editing and storytelling, I help creators and brands stand out with style.</p>
+    </section>
 
-<script>
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('id-card').style.display = 'flex';
-    }, 3000);
-  });
+    <section data-aos="fade-up">
+      <h2>Video Showcase</h2>
+      <div class="netflix-grid">
+        <div class="netflix-card" onclick="window.open('https://youtu.be/2vnaxQhUXi8', '_blank')">
+          <img src="https://img.youtube.com/vi/2vnaxQhUXi8/maxresdefault.jpg" alt="Documentary">
+          <div class="overlay">Watch on YouTube</div>
+        </div>
+        <div class="netflix-card" onclick="window.open('https://youtu.be/RDGhEXpmVgk', '_blank')">
+          <img src="https://img.youtube.com/vi/RDGhEXpmVgk/maxresdefault.jpg" alt="Concept Video">
+          <div class="overlay">Watch on YouTube</div>
+        </div>
+        <div class="netflix-card">
+          <img src="https://via.placeholder.com/300x180/1e1e1e/ffffff?text=Coming+Soon" alt="Coming Soon">
+          <div class="overlay">Coming Soon</div>
+        </div>
+      </div>
+    </section>
 
-  function enterWebsite() {
-    document.getElementById('id-card').style.display = 'none';
-    document.getElementById('bg-video').style.display = 'none';
-    document.getElementById('bg-overlay').style.display = 'none';
-    document.getElementById('main-content').style.display = 'block';
-  }
-</script>
+    <section class="skills" data-aos="fade-up">
+      <h2>Skills</h2>
+      <ul>
+        <li>Adobe Premiere Pro</li>
+        <li>After Effects</li>
+        <li>Adobe Photoshop</li>
+        <li>Motion Graphics</li>
+      </ul>
+    </section>
 
+    <section class="contact" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:beastgamerxjay@gmail.com">beastgamerxjay@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/ihyjayesh" target="_blank">@ihyjayesh</a></p>
+    </section>
+
+    <footer>
+      © 2025 Jayesh Sharma. All rights reserved.
+    </footer>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function enterWebsite() {
+      document.getElementById('id-card').style.display = 'none';
+      document.querySelector('.video-background').style.display = 'none';
+      document.querySelector('.frosted-overlay').style.display = 'none';
+      const main = document.getElementById('main-content');
+      main.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
