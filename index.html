@@ -1,153 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>jayesh sharma | Home</title>
-    <link rel="icon" href="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj">
-    <style>
-        /* General Body Styles */
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #5C4033; /* Main brown background */
-            color: #FFFFFF; /* Main white text color */
-        }
-
-        /* Navigation Bar */
-        .main-nav {
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 10;
-        }
-
-        .main-nav ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: inline-flex;
-        }
-
-        .main-nav li {
-            margin: 0 20px;
-        }
-
-        .main-nav a {
-            color: #FFFFFF; /* White navigation links */
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-            color: #FFFFFF; /* White hero text */
-        }
-
-        /* Video Background Wrapper */
-        .video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-
-        .video-bg iframe {
-            width: 100vw;
-            height: 56.25vw; /* 16:9 aspect ratio */
-            min-height: 100vh;
-            min-width: 177.77vh; /* 16:9 aspect ratio for portrait */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Brown Overlay */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(60, 40, 30, 0.65); /* Semi-transparent brown overlay */
-            z-index: -1;
-        }
-
-        .hero-header .main-name {
-            font-size: 5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .titles-wrapper {
-            font-size: 2rem;
-            font-weight: 300;
-        }
-
-        /* Basic animation for titles - kept from likely original intent */
-        .title-slide {
-            display: none;
-        }
-        .title-slide:first-child {
-            display: block;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #3d2b22; /* Darker brown for footer */
-        }
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jayesh Sharma | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="dreams.html">Dreams</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="dreams.html">Dreams</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-    <header class="hero">
-        <div class="video-bg">
-            <iframe
-                src="https://www.youtube.com/embed/2vnaxQhUXi8?start=30&autoplay=1&mute=1&controls=0&loop=1&playlist=2vnaxQhUXi8"
-                frameborder="0"
-                allowfullscreen
-            ></iframe>
-        </div>
+  <header class="hero">
+    <div class="video-bg">
+      <iframe src="https://www.youtube.com/embed/2vnaxQhUXi8?start=30&autoplay=1&mute=1&controls=0&loop=1&playlist=2vnaxQhUXi8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="overlay"></div>
+    <div class="hero-header" data-aos="fade-in" data-aos-delay="300">
+      <h1 class="main-name">Jayesh Sharma</h1>
+      <p class="titles-wrapper">Aspiring ACCA | B.Com International Business Student</p>
+    </div>
+  </header>
 
-        <div class="overlay"></div>
+  <main>
+    <section id="about" data-aos="fade-up">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I am an Aspiring ACCA and B.Com International Business student at GCEC Global, combining strong analytical finance training with a creative edge in digital communication. While my passion lies in finance, my experience in video production has honed my ability to present complex information clearly and effectively. I leverage technical skills in Python, SQL, and advanced Excel to analyze data, aiming for a career where I can translate data-driven insights into compelling business strategies.
+      </p>
+    </section>
 
-        <div class="hero-header">
-            <h1 class="main-name">jayesh sharma</h1>
-            <div class="titles-wrapper">
-                <div class="title-slide">Visual Storyteller</div>
-                <div class="title-slide">Student</div>
-                <div class="title-slide">Creative Editor</div>
+    <section id="skills" data-aos="fade-up">
+      <h2 class="section-title">Core Competencies</h2>
+      <div class="grid-container">
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-content">
+                <h3>Financial Acumen</h3>
+                <p>Studying towards ACCA and B.Com qualifications, providing a strong foundation in international business and financial analysis.</p>
             </div>
         </div>
-    </header>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-content">
+                <h3>Data Analysis</h3>
+                <p>Proficient in Python, SQL, and advanced Excel for data manipulation, analysis, and translating insights into strategy.</p>
+            </div>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-content">
+                <h3>Digital Communication</h3>
+                <p>Skilled in video production and visual storytelling, enabling clear and effective presentation of complex information.</p>
+            </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    © 2025 Jayesh Sharma | Based in Jaipur, Rajasthan
+  </footer>
 
-    <footer>
-        © 2025 jayesh sharma
-    </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
