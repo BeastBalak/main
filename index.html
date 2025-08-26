@@ -1,48 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BeastBalak | Home</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>jayesh sharma | Home</title>
+    <link rel="icon" href="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj">
+    <style>
+        /* General Body Styles */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #5C4033; /* Main brown background */
+            color: #FFFFFF; /* Main white text color */
+        }
+
+        /* Navigation Bar */
+        .main-nav {
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: inline-flex;
+        }
+
+        .main-nav li {
+            margin: 0 20px;
+        }
+
+        .main-nav a {
+            color: #FFFFFF; /* White navigation links */
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            color: #FFFFFF; /* White hero text */
+        }
+
+        /* Video Background Wrapper */
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .video-bg iframe {
+            width: 100vw;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            min-height: 100vh;
+            min-width: 177.77vh; /* 16:9 aspect ratio for portrait */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Brown Overlay */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(60, 40, 30, 0.65); /* Semi-transparent brown overlay */
+            z-index: -1;
+        }
+
+        .hero-header .main-name {
+            font-size: 5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .titles-wrapper {
+            font-size: 2rem;
+            font-weight: 300;
+        }
+
+        /* Basic animation for titles - kept from likely original intent */
+        .title-slide {
+            display: none;
+        }
+        .title-slide:first-child {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #3d2b22; /* Darker brown for footer */
+        }
+
+    </style>
 </head>
 <body>
-  <!-- Nav -->
- <nav class="main-nav" data-aos="fade-down">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="dreams.html">Dreams</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-  </nav>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="dreams.html">Dreams</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-  <!-- Hero Section -->
-<header class="hero">
-  <div class="video-bg">
-    <iframe
-      src="https://www.youtube.com/embed/2vnaxQhUXi8?start=30&autoplay=1&mute=1&controls=0&loop=1&playlist=2vnaxQhUXi8"
-      frameborder="0"
-      allowfullscreen
-    ></iframe>
-  </div>
+    <header class="hero">
+        <div class="video-bg">
+            <iframe
+                src="https://www.youtube.com/embed/2vnaxQhUXi8?start=30&autoplay=1&mute=1&controls=0&loop=1&playlist=2vnaxQhUXi8"
+                frameborder="0"
+                allowfullscreen
+            ></iframe>
+        </div>
 
-  <div class="overlay"></div>
+        <div class="overlay"></div>
 
-  <div class="hero-header">
-    <h1 class="main-name">BeastBalak</h1>
-    <div class="titles-wrapper">
-      <div class="title-slide">Visual Storyteller</div>
-      <div class="title-slide">Student</div>
-      <div class="title-slide">Creative Editor</div>
-    </div>
-  </div>
-</header>
+        <div class="hero-header">
+            <h1 class="main-name">jayesh sharma</h1>
+            <div class="titles-wrapper">
+                <div class="title-slide">Visual Storyteller</div>
+                <div class="title-slide">Student</div>
+                <div class="title-slide">Creative Editor</div>
+            </div>
+        </div>
+    </header>
 
-  <footer>
-    © 2025 Jayesh Sharma
-  </footer>
+    <footer>
+        © 2025 jayesh sharma
+    </footer>
 </body>
 </html>
