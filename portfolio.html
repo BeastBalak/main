@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BeastBalak | Portfolio</title>
+  <title>Jayesh Sharma | Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://yt3.googleusercontent.com/J7wynSpzjFkN2YpAiFWTCw14qdDhHyrl6hWqSA7jGelqVAAmj8mLyQaAyI9racPE14zr0KQAd9I=s160-c-k-c0x00ffffff-no-rj">
-  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
- <nav class="main-nav" data-aos="fade-down">
+ <nav class="main-nav">
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
@@ -19,25 +19,21 @@
 </nav>
 
   <main>
-    <header data-aos="fade-down">
-      <h1>My Portfolio</h1>
-    </header>
-
-    <!-- Video Showcase -->
     <section data-aos="fade-up">
-      <h2>Video Showcase</h2>
-      <div class="netflix-grid">
-        <div class="card" onclick="window.open('https://youtu.be/2vnaxQhUXi8','_blank')">
+      <h2 class="section-title">Video Showcase</h2>
+      <p>A collection of my work in visual storytelling, from documentaries to concept videos.</p>
+      <div class="grid-container">
+        <div class="card" onclick="window.open('https://youtu.be/2vnaxQhUXi8','_blank')" data-aos="fade-up" data-aos-delay="100">
           <img src="https://i.ytimg.com/vi/2vnaxQhUXi8/hqdefault.jpg" alt="Documentary">
-          <div class="overlay">Watch Documentary</div>
+          <div class="card-overlay">Watch Documentary</div>
         </div>
-        <div class="card" onclick="window.open('https://youtu.be/RDGhEXpmVgk','_blank')">
+        <div class="card" onclick="window.open('https://youtu.be/RDGhEXpmVgk','_blank')" data-aos="fade-up" data-aos-delay="200">
           <img src="https://img.youtube.com/vi/RDGhEXpmVgk/maxresdefault.jpg" alt="Concept">
-          <div class="overlay">Watch Concept</div>
+          <div class="card-overlay">Watch Concept</div>
         </div>
-        <div class="card" onclick="window.open('https://beastbalak.github.io/youtube/','_blank')">
+        <div class="card" onclick="window.open('https://beastbalak.github.io/youtube/','_blank')" data-aos="fade-up" data-aos-delay="300">
           <img src="https://i.pinimg.com/736x/7f/cb/4d/7fcb4d3f7bc6238760bb566aa2887839.jpg" alt="More Coming Soon">
-          <div class="overlay">All videos</div>
+          <div class="card-overlay">View All Videos</div>
         </div>
       </div>
     </section>
@@ -48,6 +44,6 @@
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
